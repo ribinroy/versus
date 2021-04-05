@@ -1,0 +1,18 @@
+@import './variables.scss';
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    margin: 20px 0;
+    font-size: 30px;
+}
+
+.flexed_contents {
+    @include flex-row();
+
+    .item {
+        flex: 1;
+    }
+}

@@ -1,0 +1,21 @@
+@import './../../variables.scss';
+
+footer {
+    @include flex-row();
+    width: 100%;
+    background-color: #2c2c2e;
+    padding: 40px 30px;
+    color: #fff;
+    font-size: 15px;
+    justify-content: space-between;
+
+    .item {
+        @include flex-row();
+        img {
+            margin-left: 30px;
+            cursor: pointer;
+            background-position: center;
+            background-size: contain;
+        }
+    }
+}

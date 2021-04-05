@@ -1,0 +1,51 @@
+// variables
+$breakpoint-xxxs: 280px;
+$breakpoint-xxs: 380px;
+$breakpoint-xs: 768px;
+$breakpoint-sm: 992px;
+$breakpoint-md: 1200px;
+
+$header-height: 40px;
+// ------------Mixins Definitions------------------
+
+@mixin flex() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-column() {
+    @include flex();
+    flex-direction: column;
+}
+
+@mixin flex-row() {
+    @include flex();
+    flex-direction: row;
+}
+
+@mixin overflow-fix() {
+    overflow-y: hidden !important;
+    overflow-x: hidden;
+}
+
+@mixin dotted-hori() {
+    background-image: linear-gradient(
+        to right,
+        #979797 53%,
+        rgba(255, 255, 255, 0) 0%
+    );
+    background-position: top;
+    background-size: 18px 1px;
+    background-repeat: repeat-x;
+}
+
+@mixin pseudo-abs() {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+}
+// -----------end of Mixins-------------
