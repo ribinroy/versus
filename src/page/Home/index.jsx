@@ -32,15 +32,15 @@ const Home = () => {
                         The web’s simplest price prediction platform for
                         cryptocurrency
                     </div>
+                    <div className='main_text'>
+                        Price Prediction. Simplified.
+                    </div>
+                    <button>View the markets</button>
                     <div className='left_links_wraps'>
                         <div className='link'>How It Works</div>
                         <div className='link'>Why Versus?</div>
                         <div className='link'>Leaderboards</div>
                     </div>
-                    <div className='main_text'>
-                        Price Prediction. Simplified.
-                    </div>
-                    <button>View the markets</button>
                     <div className='scroll_down_button'>
                         <div className='arrow'>
                             <ArrowDown />

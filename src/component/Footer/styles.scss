@@ -19,3 +19,18 @@ footer {
         }
     }
 }
+
+@media only screen and (max-width: $breakpoint-xs) {
+    footer {
+        flex-direction: column;
+        min-width: 100%;
+
+        .item {
+            margin-bottom: 15px;
+
+            img {
+                margin: 0 15px;
+            }
+        }
+    }
+}
