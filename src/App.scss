@@ -29,3 +29,10 @@ h1 {
         animation: bottomToTop 0.8s 1;
     }
 }
+
+.content_box {
+    border-radius: 10px;
+    background-color: #fff;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}

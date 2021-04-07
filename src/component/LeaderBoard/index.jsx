@@ -108,7 +108,7 @@ const LeaderBoard = () => {
     ];
 
     return (
-        <div className='leader_board_dt_wrap'>
+        <div className='leader_board_dt_wrap content_box'>
             <div className='tabs'>
                 <div
                     onClick={() => setTab('myBet')}
