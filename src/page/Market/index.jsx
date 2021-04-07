@@ -58,7 +58,7 @@ const Market = () => {
     }, [cryptoSelected]);
 
     return (
-        <main className='main_page market_wrap' tabSelected={tabSelected}>
+        <main className='main_page market_wrap' tabselected={tabSelected}>
             <header>
                 <div className='container'>
                     <div className='item home_link'>

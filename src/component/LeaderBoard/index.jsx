@@ -1,6 +1,6 @@
 import './styles.scss';
 import DataTable from 'react-data-table-component';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const LeaderBoard = () => {
     const [selectedTab, setTab] = useState('allBet');
@@ -12,7 +12,7 @@ const LeaderBoard = () => {
         },
         {
             name: 'ID',
-            selector: 'id',
+            selector: 'id_val',
             sortable: false,
         },
         {
@@ -35,7 +35,8 @@ const LeaderBoard = () => {
     const data = [
         {
             blockchain: 'Ethereuem',
-            id: '.....0324',
+            id: 1,
+            id_val: '.....0324',
             time: '7:30 PM',
             wage: '0.72 ETH',
             profit: '+ 0.72 ETH',
@@ -43,7 +44,8 @@ const LeaderBoard = () => {
         },
         {
             blockchain: 'Chainlink',
-            id: '.....0324',
+            id: 2,
+            id_val: '.....0324',
             time: '7:30 PM',
             wage: '3.32 ETH',
             profit: '- 3.32 ETH',
@@ -51,7 +53,8 @@ const LeaderBoard = () => {
         },
         {
             blockchain: 'Ethereuem',
-            id: '.....0324',
+            id: 3,
+            id_val: '.....0324',
             time: '7:30 PM',
             wage: '0.72 ETH',
             profit: '+ 0.72 ETH',
@@ -59,7 +62,8 @@ const LeaderBoard = () => {
         },
         {
             blockchain: 'Chainlink',
-            id: '.....0324',
+            id: 4,
+            id_val: '.....0324',
             time: '7:30 PM',
             wage: '3.32 ETH',
             profit: '- 3.32 ETH',
@@ -67,7 +71,8 @@ const LeaderBoard = () => {
         },
         {
             blockchain: 'Ethereuem',
-            id: '.....0324',
+            id: 5,
+            id_val: '.....0324',
             time: '7:30 PM',
             wage: '0.72 ETH',
             profit: '+ 0.72 ETH',
@@ -75,7 +80,8 @@ const LeaderBoard = () => {
         },
         {
             blockchain: 'Chainlink',
-            id: '.....0324',
+            id: 6,
+            id_val: '.....0324',
             time: '7:30 PM',
             wage: '3.32 ETH',
             profit: '- 3.32 ETH',
@@ -83,7 +89,8 @@ const LeaderBoard = () => {
         },
         {
             blockchain: 'Ethereuem',
-            id: '.....0324',
+            id: 7,
+            id_val: '.....0324',
             time: '7:30 PM',
             wage: '0.72 ETH',
             profit: '+ 0.72 ETH',
@@ -91,7 +98,8 @@ const LeaderBoard = () => {
         },
         {
             blockchain: 'Chainlink',
-            id: '.....0324',
+            id: 8,
+            id_val: '.....0324',
             time: '7:30 PM',
             wage: '3.32 ETH',
             profit: '- 3.32 ETH',
@@ -99,7 +107,8 @@ const LeaderBoard = () => {
         },
         {
             blockchain: 'Ethereuem',
-            id: '.....0324',
+            id: 9,
+            id_val: '.....0324',
             time: '7:30 PM',
             wage: '0.72 ETH',
             profit: '+ 0.72 ETH',
@@ -137,4 +146,4 @@ const LeaderBoard = () => {
     );
 };
 
-export default LeaderBoard;
+export default React.memo(LeaderBoard);
