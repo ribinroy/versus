@@ -1,9 +1,22 @@
 @import './../../variables.scss';
 
 .market_wrap {
+    --contrast-color: #fff;
     padding-top: 100px;
     position: relative;
 
+    &[tabSelected='BSC'] {
+        --contrast-color: #000;
+
+        &:before {
+            background: linear-gradient(
+                180deg,
+                #f2cd31 0%,
+                #ffd936 47.4%,
+                #faecb2 100%
+            );
+        }
+    }
     &:before {
         content: '';
         position: absolute;
@@ -13,8 +26,15 @@
         min-height: 100vh;
         z-index: 0;
         background: linear-gradient(180deg, #5ac8fa 0%, #5856d6 100%);
+        transition: all 0.4s;
     }
 
+    .content_intel_color {
+        color: var(--contrast-color);
+        transition: color 0.4s;
+        font-size: 12px;
+        font-weight: 600;
+    }
     header {
         z-index: 999;
         position: fixed;
@@ -59,10 +79,52 @@
     }
 
     .charts_wrap {
-        margin-bottom: 40px;
+        margin-bottom: 90px;
         .container {
             padding: 0;
 
+            .top_contents_wrap {
+                .wallet {
+                    background: #ff2d55;
+                    border-radius: 5px;
+                    padding: 6px 30px;
+                    color: #fff;
+                    float: right;
+                    font-size: 12px;
+                }
+                .tab_wrap {
+                    width: 100%;
+                    @include flex-row();
+
+                    button {
+                        border: 1px solid var(--contrast-color);
+                        background-color: transparent;
+                        border-radius: 5px;
+                        color: var(--contrast-color);
+                        padding: 6px 30px;
+                        // margin: 0 5px;
+                        transition: all 0.4s;
+                        cursor: pointer;
+                        font-weight: 700;
+                        font-size: 15px;
+                        outline: none;
+
+                        &:first-child {
+                            border-top-right-radius: 0px;
+                            border-bottom-right-radius: 0px;
+                        }
+                        &:last-child {
+                            border-top-left-radius: 0px;
+                            border-bottom-left-radius: 0px;
+                        }
+
+                        &.active {
+                            background: rgba(0, 0, 0, 0.4);
+                            color: #fff;
+                        }
+                    }
+                }
+            }
             .content_box_wrap {
                 width: 100%;
                 @include flex-row();
@@ -72,6 +134,7 @@
                 .left_wrap {
                     width: calc(70% - 20px);
                     min-height: 400px;
+
                     .content_box {
                         height: 100%;
                         @include flex-column();
@@ -90,6 +153,30 @@
                             width: 100%;
                         }
                     }
+
+                    .buttons_wrap {
+                        @include flex-row();
+                        margin-top: 20px;
+                        float: left;
+                        width: 100%;
+
+                        button {
+                            border: 1px solid var(--contrast-color);
+                            background-color: transparent;
+                            border-radius: 5px;
+                            color: var(--contrast-color);
+                            padding: 6px 22px;
+                            margin: 0 5px;
+                            transition: all 0.4s;
+                            cursor: pointer;
+                            font-weight: 700;
+
+                            &.active {
+                                background: rgba(0, 0, 0, 0.4);
+                                color: #fff;
+                            }
+                        }
+                    }
                 }
 
                 .right_wrap {
@@ -104,7 +191,7 @@
 
     .data_table_wrap {
         margin-bottom: 40px;
-        .container {
+        .flexed_cont {
             padding: 0;
             @include flex-row();
             justify-content: space-between;
