@@ -46,6 +46,8 @@
                 bottom: 40px;
                 font-size: 14px;
                 cursor: pointer;
+                text-decoration: none !important;
+                color: #fff !important;
 
                 &:hover {
                     svg {
@@ -121,6 +123,9 @@
                     margin-bottom: 15px;
                     padding-left: 18px;
                     position: relative;
+                    text-decoration: none !important;
+                    color: #fff !important;
+                    display: block;
 
                     &::before {
                         content: '';
@@ -229,6 +234,9 @@
 
 @media only screen and (max-width: $breakpoint-xs) {
     .home_wrap {
+        h1 {
+            text-align: center;
+        }
         .globe_wrap {
             .container {
                 .top_bar {
@@ -244,8 +252,10 @@
                     text-align: center;
                 }
                 .main_text {
-                    font-size: 50px !important;
+                    font-size: 40px !important;
                     text-align: center;
+                    padding: 0;
+                    float: left;
                 }
 
                 .left_links_wraps {
@@ -287,6 +297,28 @@
 
                 .dt_wrap {
                     width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $breakpoint-xxs) {
+    .home_wrap {
+        h1 {
+            text-align: center;
+        }
+        .globe_wrap {
+            .container {
+                .top_bar {
+                    .item {
+                        &:nth-child(2) {
+                            font-size: 14px;
+                        }
+                    }
+                }
+                .left_content {
+                    margin-bottom: 1%;
                 }
             }
         }

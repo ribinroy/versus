@@ -1,5 +1,6 @@
 import './styles.scss';
 import LeaderBoard from './../../component/LeaderBoard';
+import { Link } from 'react-router-dom';
 
 import globeImage from './../../assets/images/globe.png';
 import diamond from './../../assets/images/diamond.png';
@@ -35,21 +36,29 @@ const Home = () => {
                     <div className='main_text'>
                         Price Prediction. Simplified.
                     </div>
-                    <button>View the markets</button>
+                    <Link to='/market'>
+                        <button>View the markets</button>
+                    </Link>
                     <div className='left_links_wraps'>
-                        <div className='link'>How It Works</div>
-                        <div className='link'>Why Versus?</div>
-                        <div className='link'>Leaderboards</div>
+                        <a href='#howItWorks' className='link'>
+                            How It Works
+                        </a>
+                        <a href='#whyVersus' className='link'>
+                            Why Versus?
+                        </a>
+                        <a href='#leaderboards' className='link'>
+                            Leaderboards
+                        </a>
                     </div>
-                    <div className='scroll_down_button'>
+                    <a href='#howItWorks' className='scroll_down_button'>
                         <div className='arrow'>
                             <ArrowDown />
                         </div>
                         <div className='text'>What is Versus?</div>
-                    </div>
+                    </a>
                 </div>
             </section>
-            <section className='how_it_works'>
+            <section className='how_it_works' id='howItWorks'>
                 <div className='container'>
                     <h1>How It Works</h1>
                     <div className='flexed_contents'>
@@ -84,7 +93,7 @@ const Home = () => {
                     </p>
                 </div>
             </section>
-            <section className='why_versus'>
+            <section className='why_versus' id='whyVersus'>
                 <div className='container'>
                     <h1>Why Versus?</h1>
                     <div className='flexed_contents'>
@@ -131,7 +140,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            <section className='leaderboards'>
+            <section className='leaderboards' id='leaderboards'>
                 <div className='container'>
                     <h1>Versus Leaderboards</h1>
                     <p>
