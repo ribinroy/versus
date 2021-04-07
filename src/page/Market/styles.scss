@@ -74,6 +74,21 @@
                     min-height: 400px;
                     .content_box {
                         height: 100%;
+                        @include flex-column();
+                        justify-content: space-between;
+                        padding-bottom: 0;
+
+                        .top_details {
+                            @include flex-row();
+                            width: 100%;
+                            justify-content: space-between;
+                            font-weight: 700;
+                            font-size: 20px;
+                        }
+
+                        .chart_wrap {
+                            width: 100%;
+                        }
                     }
                 }
 
@@ -106,6 +121,27 @@
             .right_wrap {
                 width: calc(60% - 20px);
             }
+        }
+    }
+}
+
+@media only screen and (max-width: $breakpoint-xs) {
+    .market_wrap {
+        padding: 0 20px;
+        .data_table_wrap {
+            .container {
+                flex-wrap: wrap;
+            }
+        }
+
+        .content_box_wrap {
+            flex-wrap: wrap;
+        }
+
+        .left_wrap,
+        .right_wrap {
+            width: 100% !important;
+            margin-bottom: 15px;
         }
     }
 }
