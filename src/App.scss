@@ -16,3 +16,16 @@ h1 {
         flex: 1;
     }
 }
+
+.clickable {
+    cursor: pointer;
+}
+
+.popup-overlay {
+    animation: fadeIn 0.2s 1;
+    background: rgba(0, 0, 0, 0.8) !important;
+
+    .popup-content {
+        animation: bottomToTop 0.8s 1;
+    }
+}

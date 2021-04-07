@@ -1,9 +1,14 @@
 import './styles.scss';
 import LeaderBoard from './../../component/LeaderBoard';
 import { Link } from 'react-router-dom';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+import { useState } from 'react';
 
 import globeImage from './../../assets/images/globe.png';
 import diamond from './../../assets/images/diamond.png';
+import QRCode from './../../assets/images/QRCode.jpg';
+import WalletConnect from './../../assets/images/walletConnect.png';
 import HIW1 from './../../assets/images/HIW.png';
 import HIW2 from './../../assets/images/HIW 1.png';
 import HIW3 from './../../assets/images/HIW 2.png';
@@ -12,10 +17,28 @@ import WV2 from './../../assets/images/Why Versus (2).png';
 import WV3 from './../../assets/images/Why Versus (3).png';
 import WV4 from './../../assets/images/Why Versus (4).png';
 import { ReactComponent as ArrowDown } from './../../assets/svg/arrow down.svg';
+import { ReactComponent as Cancel } from './../../assets/svg/cancel.svg';
 
 const Home = () => {
+    const [openCWPop, setCWPop] = useState(false);
     return (
         <div className='main_wrap home_wrap'>
+            <Popup
+                onClose={() => setCWPop(false)}
+                open={openCWPop}
+                className='qr_pop_up '
+                position='right center'
+                closeOnDocumentClick>
+                <div className='qr_code_wrap'>
+                    <div className='out_the_box_wrap'>
+                        <img src={WalletConnect} alt='' />
+                        <Cancel onClick={() => setCWPop(false)} />
+                    </div>
+                    <p>Scan QR code with a WalletConnect-compatible wallet</p>
+                    <img src={QRCode} alt='QR Code' />
+                    <p>Copy to clipboard</p>
+                </div>
+            </Popup>
             <section className='globe_wrap'>
                 <img src={globeImage} alt='main globe' />
                 <div className='container'>
@@ -27,7 +50,11 @@ const Home = () => {
                             <div>Total Wagered:</div>
                             <div>$11,200 USD</div>
                         </div>
-                        <div className='item'>Connect Wallet</div>
+                        <div
+                            className='item clickable'
+                            onClick={() => setCWPop(true)}>
+                            Connect Wallet
+                        </div>
                     </div>
                     <div className='left_content'>
                         The web’s simplest price prediction platform for
@@ -36,7 +63,7 @@ const Home = () => {
                     <div className='main_text'>
                         Price Prediction. Simplified.
                     </div>
-                    <Link to='/market'>
+                    <Link to='/market' className='view_market_button'>
                         <button>View the markets</button>
                     </Link>
                     <div className='left_links_wraps'>

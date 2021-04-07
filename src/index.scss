@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;400;500;700;800&display=swap');
+@import './variables.scss';
 
 html {
     scroll-behavior: smooth;
@@ -16,4 +17,144 @@ body {
     transform: translateX(-50%);
     width: 100%;
     padding: 0 15px;
+}
+
+@for $i from 1 through 10 {
+    .animationFlow:nth-child(#{$i}) {
+        animation-duration: $i * 0.2s;
+    }
+}
+
+@for $i from 1 through 50 {
+    .animationFlowFaster:nth-child(#{$i}) {
+        animation-duration: $i * 0.1s;
+    }
+}
+
+@keyframes inputBorder {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.slideFromRightToLeft {
+    animation: slideFromRightToLeft 0.4s 1;
+}
+
+.slideFromLeftToRight {
+    animation: slideFromLeftToRight 0.4s 1;
+}
+
+.completeButtonWrap {
+    float: left;
+    width: 100%;
+    @include flex-column();
+    margin-bottom: 25px;
+    animation: fadeIn 0.4s 1;
+}
+
+@keyframes slideFromLeftToRight {
+    from {
+        opacity: 0;
+        transform: translate(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0px);
+    }
+}
+
+@keyframes slideFromRightToLeft {
+    from {
+        opacity: 0;
+        transform: translate(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0px);
+    }
+}
+
+.lineHeightAnimation {
+    animation: lineHeightAnime 0.4s 1;
+}
+
+@keyframes lineHeightAnime {
+    from {
+        line-height: 0;
+        opacity: 0;
+    }
+
+    to {
+        line-height: 1.3;
+        opacity: 1;
+    }
+}
+
+.topToBottomAnimation {
+    animation: topToBottom 0.4s 1;
+}
+
+@keyframes topToBottom {
+    from {
+        opacity: 0;
+        transform: translate(0, -10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0, 0px);
+    }
+}
+
+.bottomToTopAnimation {
+    animation: bottomToTop 0.4s 1;
+}
+
+.zoomInAnimation {
+    animation: zoomIn 0.4s 1;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.fadeInAnimation {
+    animation: fadeIn 0.4s 1;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes bottomToTop {
+    from {
+        opacity: 0;
+        transform: translate(0, 10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0, 0px);
+    }
 }

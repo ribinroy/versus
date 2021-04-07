@@ -1,5 +1,36 @@
 @import './../../variables.scss';
 
+.qr_pop_up-content {
+    max-width: 520px;
+    @include flex-row();
+    border-radius: 10px;
+    color: #707070;
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+
+    img {
+        width: 100%;
+    }
+    .out_the_box_wrap {
+        position: absolute;
+        top: -45px;
+        left: 0;
+        width: 100%;
+        @include flex-row();
+        justify-content: space-between;
+
+        img {
+            height: 100%;
+            width: auto;
+        }
+
+        svg {
+            cursor: pointer;
+        }
+    }
+}
+
 .home_wrap {
     width: 100%;
     .globe_wrap {
@@ -27,7 +58,7 @@
                 padding: 0 30px;
             }
 
-            button {
+            .view_market_button {
                 background: #ffffff;
                 border-radius: 5px;
                 border: 0px;
@@ -38,6 +69,14 @@
                 font-weight: 600;
                 bottom: 23%;
                 position: absolute;
+
+                button {
+                    border: none;
+                    background: transparent;
+                    padding: 0;
+                    cursor: pointer;
+                    outline: none;
+                }
             }
 
             .scroll_down_button {
@@ -233,6 +272,14 @@
 }
 
 @media only screen and (max-width: $breakpoint-xs) {
+    .qr_pop_up-content {
+        width: calc(100% - 40px) !important;
+        .out_the_box_wrap {
+            svg {
+            }
+        }
+    }
+
     .home_wrap {
         h1 {
             text-align: center;
@@ -263,7 +310,7 @@
                     position: relative;
                 }
 
-                button {
+                .view_market_button {
                     bottom: 17%;
                 }
             }
