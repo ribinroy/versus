@@ -1,11 +1,17 @@
 import { ReactComponent as Chevron } from './../../assets/svg/Chevron.svg';
 import { useState } from 'react';
+import { ReviewPredictionPop } from './PopUps';
 
 const Prediction = ({ data }) => {
     const [selectedTab, setTab] = useState('Short');
+    const [showReviewPredictionPop, setReviewPredictionPop] = useState(false);
 
     return (
         <div className='prediction_wrap content_box'>
+            <ReviewPredictionPop
+                open={showReviewPredictionPop}
+                onClose={() => setReviewPredictionPop(false)}
+            />
             <div className='header'>
                 {data.title} Prediction <Chevron />
             </div>
@@ -30,7 +36,9 @@ const Prediction = ({ data }) => {
                     <div>{data.title} Short Below</div>
                     <div className='text_box'>$0.00</div>
                 </div>
-                <button>Review Prediction</button>
+                <button onClick={() => setReviewPredictionPop(true)}>
+                    Review Prediction
+                </button>
             </div>
             <div className='footer'>
                 <div>ETH in my Wallet</div>

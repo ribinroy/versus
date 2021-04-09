@@ -6,6 +6,7 @@ import Chart from 'react-apexcharts';
 import TradeValues from './TradeValues';
 import Prediction from './Prediction';
 import Timer from './Timer';
+import { CloseRoundPop } from './PopUps';
 
 import diamond from './../../assets/images/diamond.png';
 import etheruem from './../../assets/images/etheruem.png';
@@ -109,13 +110,36 @@ const Market = () => {
     const [tabSelected, setTab] = useState('ethereum');
     const [cryptoSelected, setCrypto] = useState('eth');
     const [rewardToolTip, setRewardToolTip] = useState(false);
+    const [showCloseRoundPop, setCloseRoundPop] = useState(false);
+    const [chartDataState, setChartData] = useState(
+        dataSet[cryptoSelected].chart
+    );
 
-    useEffect(() => {}, [tabSelected]);
+    useEffect(() => {
+        if (chartDataState[0].name === '')
+            setChartData(dataSet[cryptoSelected].chart);
+    }, [chartDataState]);
 
-    useEffect(() => {}, [cryptoSelected]);
+    const setTabHandler = (value) => {
+        setTab(value);
+        setChartData([
+            {
+                name: '',
+                data: ['0 ETH', '0 ETH'],
+            },
+        ]);
+    };
+
+    useEffect(() => {
+        setChartData(dataSet[cryptoSelected].chart);
+    }, [cryptoSelected]);
 
     return (
         <main className='main_page market_wrap' tabselected={tabSelected}>
+            <CloseRoundPop
+                open={showCloseRoundPop}
+                onClose={() => setCloseRoundPop(false)}
+            />
             <header>
                 <div className='container'>
                     <div className='item home_link'>
@@ -140,7 +164,6 @@ const Market = () => {
                         data-aos='fade-down'
                         data-aos-duration='700'
                         data-aos-offset='0'>
-                        <div className='link'>Close Round</div>
                         <div
                             className='link'
                             onClick={() => setRewardToolTip(!rewardToolTip)}>
@@ -168,7 +191,7 @@ const Market = () => {
                                         ? ' active'
                                         : '')
                                 }
-                                onClick={() => setTab('ethereum')}>
+                                onClick={() => setTabHandler('ethereum')}>
                                 Ethereum
                             </button>
                             <button
@@ -176,7 +199,7 @@ const Market = () => {
                                     'tab' +
                                     (tabSelected === 'BSC' ? ' active' : '')
                                 }
-                                onClick={() => setTab('BSC')}>
+                                onClick={() => setTabHandler('BSC')}>
                                 Binance Smart Chain
                             </button>
                         </div>
@@ -211,7 +234,7 @@ const Market = () => {
                                 <div className='chart_wrap'>
                                     <Chart
                                         options={chartOptions}
-                                        series={dataSet[cryptoSelected].chart}
+                                        series={chartDataState}
                                         type='bar'
                                         height={320}
                                     />
@@ -241,6 +264,11 @@ const Market = () => {
                         </div>
                         <div className='right_wrap'>
                             <Prediction data={dataSet[cryptoSelected]} />
+                            <div
+                                className='close_round_link'
+                                onClick={() => setCloseRoundPop(true)}>
+                                Close Round
+                            </div>
                         </div>
                     </div>
                 </div>
