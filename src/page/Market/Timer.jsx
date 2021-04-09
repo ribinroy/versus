@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Timer from 'react-timer-wrapper';
 import Timecode from 'react-timecode';
 
