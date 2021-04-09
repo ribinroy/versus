@@ -11,6 +11,7 @@
 
     img {
         width: 100%;
+        min-height: 400px;
     }
     .out_the_box_wrap {
         position: absolute;
@@ -23,6 +24,7 @@
         img {
             height: 100%;
             width: auto;
+            min-height: auto;
         }
 
         svg {

@@ -8,6 +8,7 @@ footer {
     color: #fff;
     font-size: 15px;
     justify-content: space-between;
+    overflow: hidden;
 
     .item {
         @include flex-row();

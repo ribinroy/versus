@@ -11,6 +11,29 @@
         text-align: center;
     }
 
+    div[role='columnheader']:hover {
+        color: inherit;
+    }
+
+    .flexed {
+        @include flex-row;
+        justify-content: space-between;
+        min-width: 120px;
+    }
+    .arrow {
+        margin-left: 5px;
+        transform: scale(0.7);
+
+        &.green {
+            transform: rotate(180deg) scale(0.7);
+            path {
+                fill: rgba(38, 189, 98, 1);
+            }
+        }
+        path {
+            fill: rgba(240, 59, 59, 1);
+        }
+    }
     .tabs {
         @include flex-row();
         align-items: flex-start;

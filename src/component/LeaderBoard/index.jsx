@@ -1,6 +1,7 @@
 import './styles.scss';
 import DataTable from 'react-data-table-component';
 import React, { useState } from 'react';
+import { ReactComponent as ArrowDown } from './../../assets/svg/arrow down.svg';
 
 const LeaderBoard = () => {
     const [selectedTab, setTab] = useState('allBet');
@@ -29,6 +30,18 @@ const LeaderBoard = () => {
             name: 'Profit',
             selector: 'profit',
             sortable: false,
+            cell: (d) => {
+                return (
+                    <div className='flexed'>
+                        {d.profit}
+                        <ArrowDown
+                            className={
+                                'arrow ' + (d.margin === '+' ? 'red' : 'green')
+                            }
+                        />
+                    </div>
+                );
+            },
         },
     ];
 

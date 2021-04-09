@@ -40,44 +40,96 @@ const Home = () => {
                 </div>
             </Popup>
             <section className='globe_wrap'>
-                <img src={globeImage} alt='main globe' />
+                <img
+                    src={globeImage}
+                    alt='main globe'
+                    data-aos='zoom-in'
+                    data-aos-duration='3000'
+                    data-aos-offset='0'
+                />
                 <div className='container'>
                     <div className='top_bar'>
                         <div className='item'>
-                            <img src={diamond} alt='Diamond' />
+                            <img
+                                src={diamond}
+                                alt='Diamond'
+                                data-aos='fade-down'
+                                data-aos-duration='500'
+                                data-aos-offset='0'
+                            />
                         </div>
-                        <div className='item'>
+                        <div
+                            className='item'
+                            data-aos='fade-down'
+                            data-aos-duration='600'
+                            data-aos-offset='0'>
                             <div>Total Wagered:</div>
                             <div>$11,200 USD</div>
                         </div>
                         <div
+                            data-aos='fade-down'
+                            data-aos-duration='700'
+                            data-aos-offset='0'
                             className='item clickable'
                             onClick={() => setCWPop(true)}>
                             Connect Wallet
                         </div>
                     </div>
-                    <div className='left_content'>
+                    <div
+                        className='left_content'
+                        data-aos='fade-left'
+                        data-aos-duration='800'
+                        data-aos-offset='0'>
                         The web’s simplest price prediction platform for
                         cryptocurrency
                     </div>
-                    <div className='main_text'>
+                    <div
+                        className='main_text'
+                        data-aos='fade-up'
+                        data-aos-duration='900'
+                        data-aos-offset='0'>
                         Price Prediction. Simplified.
                     </div>
-                    <Link to='/market' className='view_market_button'>
+                    <Link
+                        to='/market'
+                        className='view_market_button'
+                        data-aos='fade-up'
+                        data-aos-duration='1600'
+                        data-aos-offset='0'>
                         <button>View the markets</button>
                     </Link>
                     <div className='left_links_wraps'>
-                        <a href='#howItWorks' className='link'>
+                        <a
+                            href='#howItWorks'
+                            className='link'
+                            data-aos='fade-left'
+                            data-aos-duration='1000'
+                            data-aos-offset='0'>
                             How It Works
                         </a>
-                        <a href='#whyVersus' className='link'>
+                        <a
+                            href='#whyVersus'
+                            className='link'
+                            data-aos='fade-left'
+                            data-aos-duration='1100'
+                            data-aos-offset='0'>
                             Why Versus?
                         </a>
-                        <a href='#leaderboards' className='link'>
+                        <a
+                            href='#leaderboards'
+                            className='link'
+                            data-aos='fade-left'
+                            data-aos-duration='1200'
+                            data-aos-offset='0'>
                             Leaderboards
                         </a>
                     </div>
-                    <a href='#howItWorks' className='scroll_down_button'>
+                    <a
+                        href='#howItWorks'
+                        className='scroll_down_button'
+                        data-aos='fade-up'
+                        data-aos-duration='1500'
+                        data-aos-offset='0'>
                         <div className='arrow'>
                             <ArrowDown />
                         </div>
@@ -87,9 +139,18 @@ const Home = () => {
             </section>
             <section className='how_it_works' id='howItWorks'>
                 <div className='container'>
-                    <h1>How It Works</h1>
+                    <h1
+                        data-aos='fade-left'
+                        data-aos-duration='500'
+                        data-aos-offset='0'>
+                        How It Works
+                    </h1>
                     <div className='flexed_contents'>
-                        <div className='item'>
+                        <div
+                            className='item'
+                            data-aos='fade-up'
+                            data-aos-duration='600'
+                            data-aos-offset='0'>
                             <img src={HIW1} alt='HIW1' />
                             <p>
                                 Make hourly predictions on the prices of
@@ -98,14 +159,22 @@ const Home = () => {
                                 required.
                             </p>
                         </div>
-                        <div className='item'>
+                        <div
+                            className='item'
+                            data-aos='fade-up'
+                            data-aos-duration='700'
+                            data-aos-offset='0'>
                             <img src={HIW2} alt='HIW2' />
                             <p>
                                 Earn profits by longing or shorting specific
                                 markets like ETH/USD and beat the market.
                             </p>
                         </div>
-                        <div className='item'>
+                        <div
+                            className='item'
+                            data-aos='fade-up'
+                            data-aos-duration='800'
+                            data-aos-offset='0'>
                             <img src={HIW3} alt='HIW3' />
                             <p>
                                 Claim fees by helping to manage the expiration
@@ -114,7 +183,10 @@ const Home = () => {
                             </p>
                         </div>
                     </div>
-                    <p>
+                    <p
+                        data-aos='fade-up'
+                        data-aos-duration='900'
+                        data-aos-offset='0'>
                         Versus token holders get rewarded with ETH for just
                         holding the Versus tokens in their wallet.
                     </p>
@@ -122,9 +194,18 @@ const Home = () => {
             </section>
             <section className='why_versus' id='whyVersus'>
                 <div className='container'>
-                    <h1>Why Versus?</h1>
+                    <h1
+                        data-aos='fade-left'
+                        data-aos-duration='500'
+                        data-aos-offset='0'>
+                        Why Versus?
+                    </h1>
                     <div className='flexed_contents'>
-                        <div className='item'>
+                        <div
+                            className='item'
+                            data-aos='fade-up'
+                            data-aos-duration='600'
+                            data-aos-offset='0'>
                             <img src={WV1} alt='WV1' />
                             <p>1. Compatible with multiple chains </p>
                             <p>
@@ -135,7 +216,11 @@ const Home = () => {
                                 expensive Ethereum network.
                             </p>
                         </div>
-                        <div className='item'>
+                        <div
+                            className='item'
+                            data-aos='fade-up'
+                            data-aos-duration='700'
+                            data-aos-offset='0'>
                             <img src={WV2} alt='WV2' />
                             <p>2. Two hour prediction windows</p>
                             <p>
@@ -145,7 +230,11 @@ const Home = () => {
                                 multiple times each day.
                             </p>
                         </div>
-                        <div className='item'>
+                        <div
+                            className='item'
+                            data-aos='fade-up'
+                            data-aos-duration='800'
+                            data-aos-offset='0'>
                             <img src={WV3} alt='WV3' />
                             <p>4. Users get paid for managing markets</p>
                             <p>
@@ -156,7 +245,11 @@ const Home = () => {
                                 without the need for any centralized moderators.
                             </p>
                         </div>
-                        <div className='item'>
+                        <div
+                            className='item'
+                            data-aos='fade-up'
+                            data-aos-duration='900'
+                            data-aos-offset='0'>
                             <img src={WV4} alt='WV4' />
                             <p>3. No user gets left behind</p>
                             <p>
@@ -169,13 +262,25 @@ const Home = () => {
             </section>
             <section className='leaderboards' id='leaderboards'>
                 <div className='container'>
-                    <h1>Versus Leaderboards</h1>
-                    <p>
+                    <h1
+                        data-aos='fade-up'
+                        data-aos-duration='500'
+                        data-aos-offset='0'>
+                        Versus Leaderboards
+                    </h1>
+                    <p
+                        data-aos='fade-up'
+                        data-aos-duration='600'
+                        data-aos-offset='0'>
                         Every 2 hours, our leaderboards update you on all
                         current bets happening, as well as keeping you up to
                         date on your transaction history
                     </p>
-                    <div className='dt_wrap'>
+                    <div
+                        className='dt_wrap'
+                        data-aos='fade-up'
+                        data-aos-duration='700'
+                        data-aos-offset='0'>
                         <LeaderBoard />
                     </div>
                 </div>

@@ -19,6 +19,14 @@ body {
     padding: 0 15px;
 }
 
+.flexed {
+    @include flex-row();
+}
+
+section {
+    overflow: hidden;
+}
+
 @for $i from 1 through 10 {
     .animationFlow:nth-child(#{$i}) {
         animation-duration: $i * 0.2s;
