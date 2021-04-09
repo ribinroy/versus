@@ -2,11 +2,13 @@
 
 .market_wrap {
     --contrast-color: #fff;
+    --button-color: #0cc63b;
     padding-top: 100px;
     position: relative;
 
     &[tabSelected='BSC'] {
         --contrast-color: #000;
+        --button-color: #5856d6;
         &:after {
             opacity: 1;
         }
@@ -28,9 +30,11 @@
         );
         opacity: 0;
         transition: opacity 0.4s;
+        pointer-events: none;
     }
 
     &:before {
+        pointer-events: none;
         content: '';
         position: absolute;
         width: 100%;
@@ -53,7 +57,7 @@
         font-weight: 600;
     }
     header {
-        overflow: hidden;
+        // overflow: hidden;
         z-index: 999;
         position: fixed;
         left: 0;
@@ -127,7 +131,7 @@
     }
 
     .charts_wrap {
-        margin-bottom: 90px;
+        padding-bottom: 90px;
         .container {
             padding: 0;
 
@@ -310,7 +314,7 @@
             cursor: pointer;
 
             &.active {
-                background: #5856d6;
+                background: var(--button-color);
                 color: #fff;
             }
         }
@@ -329,7 +333,7 @@
         }
 
         button {
-            background: #5856d6;
+            background: var(--button-color);
             border-radius: 5px;
             padding: 20px 40px;
             font-size: 14px;
@@ -338,6 +342,7 @@
             border: none;
             margin-top: 50px;
             cursor: pointer;
+            transition: background 0.4s;
         }
     }
 
@@ -432,25 +437,41 @@
     .market_wrap {
         padding: 0 20px;
 
+        .content_intel_color {
+            text-align: center;
+        }
+
         header {
             .container {
-                padding-left: 5px;
-                padding-right: 5px;
+                padding-left: 10px;
+                padding-right: 10px;
+                flex-wrap: wrap;
+
                 .item {
                     font-size: 14px;
 
                     &.home_link {
+                        order: 1;
                     }
                     &.counter {
-                        max-width: 50%;
                         position: relative;
-                        text-align: center;
+                        text-align: right;
+                        @include flex-row();
+                        // align-items: flex-end;
+                        min-width: 100%;
+                        order: 3;
+                        margin-top: 5px;
+
+                        span {
+                            // margin: 0;
+                        }
                     }
                     &.links_inside {
-                        flex-direction: column;
                         align-items: flex-end;
                         max-width: 30%;
                         text-align: right;
+                        max-width: 80%;
+                        order: 2;
 
                         .link {
                             margin-bottom: 5px;
@@ -464,9 +485,47 @@
                 }
             }
         }
+
+        .charts_wrap {
+            padding-top: 130px;
+            padding-bottom: 0px;
+
+            .container {
+                .content_box_wrap {
+                    .left_wrap {
+                        .top_details {
+                            .right_wrap_1 {
+                                text-align: right;
+                            }
+                        }
+                    }
+                    .right_wrap {
+                        margin-top: 60px;
+                    }
+                }
+
+                .wallet {
+                    width: 100%;
+                    text-align: center;
+                    margin-bottom: 15px;
+                }
+
+                .tab_wrap {
+                    align-items: stretch !important;
+
+                    .tab {
+                        padding: 6px 15px !important;
+                    }
+                }
+            }
+        }
         .data_table_wrap {
             .container {
                 flex-wrap: wrap;
+
+                .content_intel_color {
+                    color: #000;
+                }
             }
         }
 
@@ -479,5 +538,21 @@
             width: 100% !important;
             margin-bottom: 15px;
         }
+    }
+
+    .trade_wrap {
+        .body {
+            .item {
+                .value {
+                    @include flex-column();
+                    justify-content: flex-end;
+                    align-items: flex-end;
+                }
+            }
+        }
+    }
+
+    .prediction_wrap {
+        min-height: 400px;
     }
 }

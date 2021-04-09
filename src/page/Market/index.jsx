@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import LeaderBoard from './../../component/LeaderBoard';
 import { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
+import TradeValues from './TradeValues';
+import Prediction from './Prediction';
+import Timer from './Timer';
 
 import diamond from './../../assets/images/diamond.png';
 import etheruem from './../../assets/images/etheruem.png';
-import { ReactComponent as Chevron } from './../../assets/svg/Chevron.svg';
-import { ReactComponent as ArrowDown } from './../../assets/svg/arrow down.svg';
+import chainlink from './../../assets/images/chainlink.png';
 
 const chartOptions = {
     fill: {
@@ -34,32 +36,83 @@ const chartOptions = {
     labels: ['Short', 'Long'],
 };
 
-const chartDataSet = {
-    eth: [
-        {
-            name: 'ETH',
-            data: ['10 ETH', '40 ETH'],
+const dataSet = {
+    eth: {
+        name: 'ETH/USD',
+        title: 'Ethreruem',
+        image: etheruem,
+        price: '1334.82',
+        btcValue: '0.03830 BTC',
+        totalprice: '1335',
+        tradeData: {
+            pm: { profit: '7.32', margin: '+' },
+            '24hrPC': { price: '$129.06', profit: '7.31', margin: '+' },
+            marketCap: {
+                price: '$195,167,193,427.34',
+                profit: '7.31',
+                margin: '+',
+            },
+            '24hLow24hHigh': { price: '$1571.58 / $1,770.59' },
+            tradingVol: {
+                price: '$45,483,057,917.02',
+                profit: '16.97',
+                margin: '+',
+            },
+            allTimeLow: { price: '$1,770.06', profit: '3.81', margin: '-' },
+            allTimeHigh: { price: '$0.4209', profit: '404552.79', margin: '+' },
+            ROI: { profit: '60024.21', margin: '+' },
+            rank: '2',
         },
-    ],
-    link: [
-        {
-            name: 'ETH',
-            data: ['32 ETH', '20 ETH'],
+        chart: [
+            {
+                name: 'ETH',
+                data: ['10 ETH', '40 ETH'],
+            },
+        ],
+    },
+    link: {
+        name: 'Chainlink',
+        title: 'Chainlink',
+        image: chainlink,
+        price: '22.61',
+        btcValue: '0.00048 BTC',
+        totalprice: '24.89',
+        tradeData: {
+            pm: { profit: '7.32', margin: '+' },
+            '24hrPC': { price: '$2.33', profit: '7.68', margin: '+' },
+            marketCap: {
+                price: '$12,383,604,898.99',
+                profit: '9.19',
+                margin: '+',
+            },
+            '24hLow24hHigh': { price: '$26.83 / $30.64' },
+            tradingVol: {
+                price: '$3,098,066,260.96',
+                profit: '25.78',
+                margin: '+',
+            },
+            allTimeLow: { price: '$30.64', profit: '0.57', margin: '-' },
+            allTimeHigh: { price: '$0.1263', profit: '24020.27', margin: '+' },
+            ROI: { profit: '19366.09', margin: '+' },
+            rank: '9',
         },
-    ],
+        chart: [
+            {
+                name: 'ETH',
+                data: ['32 ETH', '20 ETH'],
+            },
+        ],
+    },
 };
 
 const Market = () => {
     const [tabSelected, setTab] = useState('ethereum');
     const [cryptoSelected, setCrypto] = useState('eth');
     const [rewardToolTip, setRewardToolTip] = useState(false);
-    // const [chartData, setChartData] = useState(chartDataSet['eth']);
 
     useEffect(() => {}, [tabSelected]);
 
-    useEffect(() => {
-        // setChartData(chartDataSet[cryptoSelected]);
-    }, [cryptoSelected]);
+    useEffect(() => {}, [cryptoSelected]);
 
     return (
         <main className='main_page market_wrap' tabselected={tabSelected}>
@@ -79,7 +132,8 @@ const Market = () => {
                         data-aos='fade-down'
                         data-aos-duration='600'
                         data-aos-offset='0'>
-                        Next prediction cycle ends in <span>02:00:00</span>
+                        Next prediction cycle ends in{' '}
+                        <Timer timerValue={7200003} />
                     </div>
                     <div
                         className='item links_inside'
@@ -136,19 +190,28 @@ const Market = () => {
                                 <div className='top_details'>
                                     <div className='left_wrap_1'>
                                         <div className='crypto_type'>
-                                            <img src={etheruem} alt='ICON' />{' '}
-                                            ETH/USD
+                                            <img
+                                                src={
+                                                    dataSet[cryptoSelected]
+                                                        .image
+                                                }
+                                                alt='ICON'
+                                            />
+                                            {dataSet[cryptoSelected].name}
                                         </div>
-                                        <div className='value'>$1334.82</div>
+                                        <div className='value'>
+                                            ${dataSet[cryptoSelected].price}
+                                        </div>
                                     </div>
                                     <div className='right_wrap_1'>
-                                        Target price : $1335
+                                        Target price : $
+                                        {dataSet[cryptoSelected].totalprice}
                                     </div>
                                 </div>
                                 <div className='chart_wrap'>
                                     <Chart
                                         options={chartOptions}
-                                        series={chartDataSet[cryptoSelected]}
+                                        series={dataSet[cryptoSelected].chart}
                                         type='bar'
                                         height={320}
                                     />
@@ -177,7 +240,7 @@ const Market = () => {
                             </div>
                         </div>
                         <div className='right_wrap'>
-                            <Prediction />
+                            <Prediction data={dataSet[cryptoSelected]} />
                         </div>
                     </div>
                 </div>
@@ -190,7 +253,7 @@ const Market = () => {
                 </div>
                 <div className='container flexed_cont'>
                     <div className='left_wrap'>
-                        <TradeValues />
+                        <TradeValues data={dataSet[cryptoSelected]} />
                     </div>
                     <div className='right_wrap'>
                         <LeaderBoard />
@@ -201,108 +264,4 @@ const Market = () => {
     );
 };
 
-const Prediction = () => {
-    const [selectedTab, setTab] = useState('Short');
-
-    return (
-        <div className='prediction_wrap content_box'>
-            <div className='header'>
-                Etherum Prediction <Chevron />
-            </div>
-            <div className='tab_wrap'>
-                <div
-                    onClick={() => setTab('Short')}
-                    className={
-                        'tab' + (selectedTab === 'Short' ? ' active' : '')
-                    }>
-                    Short
-                </div>
-                <div
-                    onClick={() => setTab('Long')}
-                    className={
-                        'tab' + (selectedTab === 'Long' ? ' active' : '')
-                    }>
-                    Long
-                </div>
-            </div>
-            <div className='body'>
-                <div className='flexed'>
-                    <div>Ethereum Short Below</div>
-                    <div className='text_box'>$0.00</div>
-                </div>
-                <button>Review Prediction</button>
-            </div>
-            <div className='footer'>
-                <div>ETH in my Wallet</div>
-                <div>17.201 ETH = ($18,200 USD)</div>
-            </div>
-        </div>
-    );
-};
-
-const TradeValues = () => {
-    return (
-        <div className='trade_wrap content_box'>
-            <div className='header'>
-                <div className='crypto'>Ethereum Price</div>
-                <div className='value'>
-                    $1,334.82
-                    <div className='crypto_value'>0.03830 BTC</div>
-                </div>
-            </div>
-            <div className='body'>
-                <div className='item'>
-                    <div className='key'>24h Price Change</div>
-                    <div className='value'>
-                        $129.06
-                        <Value value='7.31%' margin='+' />
-                    </div>
-                </div>
-                <div className='item'>
-                    <div className='key'>Market Cap</div>
-                    <div className='value'>$195,167,193,427.34</div>
-                </div>
-                <div className='item'>
-                    <div className='key'>24h Low / 24h High</div>
-                    <div className='value'>$1571.58 / $1,770.59</div>
-                </div>
-                <div className='item'>
-                    <div className='key'>Trading Volume</div>
-                    <div className='value'>$45,483,057,917.02</div>
-                </div>
-                <div className='item'>
-                    <div className='key'>
-                        All Time Low <div className='sub'>Oct. 21, 2015</div>
-                    </div>
-                    <div className='value'>
-                        $1,770.06 <Value value='3.81%' margin='-' />
-                    </div>
-                </div>
-                <div className='item'>
-                    <div className='key'>
-                        All Time High<div className='sub'>Feb. 08, 2021</div>
-                    </div>
-                    <div className='value'>XXXXX</div>
-                </div>
-                <div className='item'>
-                    <div className='key'>Ethereum ROI</div>
-                    <div className='value'>XXXXX</div>
-                </div>
-                <div className='item'>
-                    <div className='key'>CoinMarketCap Rank</div>
-                    <div className='value'>XXXXX</div>
-                </div>
-            </div>
-        </div>
-    );
-};
-
-const Value = ({ value, margin }) => {
-    return (
-        <div className={'value_wrap ' + (margin === '+' ? 'green' : 'red')}>
-            <ArrowDown />
-            {value}
-        </div>
-    );
-};
 export default Market;
