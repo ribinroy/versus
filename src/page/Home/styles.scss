@@ -116,7 +116,7 @@
                 width: 100%;
                 @include flex-row();
                 justify-content: space-around;
-                padding: 20px 0;
+                padding: 20px 15px;
 
                 .item {
                     width: 33.33%;
@@ -149,14 +149,14 @@
             .left_content {
                 font-size: 14px;
                 position: absolute;
-                left: 0;
+                left: 15px;
                 top: 110px;
                 max-width: 15%;
             }
 
             .left_links_wraps {
                 position: absolute;
-                left: 0;
+                left: 15px;
                 bottom: 10%;
                 font-size: 14px;
 
@@ -284,6 +284,7 @@
     }
 
     .home_wrap {
+        padding: 0;
         h1 {
             text-align: center;
         }
@@ -301,7 +302,7 @@
                     }
                 }
                 .left_content {
-                    left: 0px;
+                    left: px;
                     top: 0px;
                     margin-bottom: 18%;
                     max-width: 80%;
@@ -318,6 +319,7 @@
                 .left_links_wraps {
                     margin-top: 15%;
                     position: relative;
+                    left: 0;
                 }
 
                 .view_market_button {

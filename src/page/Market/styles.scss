@@ -67,10 +67,9 @@
         box-shadow: 0px -10px 30px #333;
 
         .container {
-            padding: 0;
             @include flex-row();
             justify-content: space-between;
-            padding: 15px 0;
+            padding: 15px;
             font-weight: 700;
             position: relative;
 
@@ -133,7 +132,7 @@
     .charts_wrap {
         padding-bottom: 90px;
         .container {
-            padding: 0;
+            padding: 0 15px;
 
             .top_contents_wrap {
                 .wallet {
@@ -259,6 +258,8 @@
                         margin-top: 15px;
                         font-weight: 700;
                         cursor: pointer;
+                        transition: color 0.4s;
+                        color: var(--contrast-color);
                     }
 
                     .content_box {
@@ -272,7 +273,7 @@
     .data_table_wrap {
         margin-bottom: 40px;
         .flexed_cont {
-            padding: 0;
+            padding: 0 15px;
             @include flex-row();
             justify-content: space-between;
             align-items: stretch;
@@ -442,6 +443,138 @@
     }
 }
 
+.flex_pop-content {
+    max-width: 450px;
+    border-radius: 8px;
+    padding: 0;
+    height: 500px;
+
+    .pop_content_wrap {
+        --button-color: #0cc63b;
+        --contrast-color: #fff;
+
+        @include flex-column();
+        padding: 0;
+        font-weight: 700;
+        height: 100%;
+
+        &[tabSelected='BSC'] {
+            --contrast-color: #000;
+            --button-color: #5856d6;
+        }
+
+        .header {
+            @include flex-row();
+            height: 50px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            width: 100%;
+
+            img {
+                margin-right: 10px;
+                max-height: 35px;
+            }
+        }
+
+        .tabs_wrap {
+            display: flex;
+            justify-content: center;
+            height: 50px;
+            justify-content: space-around;
+            width: 100%;
+
+            .tab {
+                width: 100%;
+                text-align: center;
+                cursor: pointer;
+                height: 100%;
+                @include flex-row();
+                transition: all 0.4s;
+                color: var(--button-color);
+                border-bottom: 1px solid transparent;
+
+                &:first-child {
+                    border-right: 1px solid rgba(0, 0, 0, 0.2);
+                }
+
+                &:not(.active) {
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                    background-color: rgba(216, 216, 216, 0.2);
+                    color: rgba(161, 161, 161, 1);
+                }
+            }
+        }
+
+        .status {
+            @include flex-row();
+            text-align: center;
+            height: 50px;
+            width: 100%;
+
+            span {
+                color: var(--button-color);
+                margin: 0 5px;
+            }
+        }
+
+        .body {
+            flex: 1;
+            @include flex-column();
+
+            p {
+                font-size: 14px;
+                letter-spacing: -0.097561px;
+                color: rgba(161, 161, 161, 0.6);
+            }
+
+            .value {
+                letter-spacing: -0.097561px;
+                font-size: 100px;
+                color: rgba(161, 161, 161, 0.6);
+
+                span {
+                    font-size: 30px;
+                }
+            }
+        }
+
+        .footer {
+            height: 135px;
+            width: 100%;
+            padding: 0 15px;
+
+            button {
+                background: var(--button-color);
+                border-radius: 10px;
+                width: 100%;
+                padding: 18px 30px;
+                font-size: 27px;
+                color: #fff;
+                border: 0px;
+                outline: none;
+                cursor: pointer;
+            }
+
+            .contents {
+                @include flex-row();
+                justify-content: space-between;
+                letter-spacing: -0.097561px;
+                font-size: 14px;
+                color: rgba(0, 0, 0, 0.6);
+                padding: 25px 0;
+                align-items: stretch;
+
+                .link {
+                    cursor: pointer;
+                    @include flex-row();
+
+                    svg {
+                        margin-left: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
 @media only screen and (max-width: $breakpoint-xs) {
     .market_wrap {
         padding: 0 20px;
@@ -470,6 +603,7 @@
                         min-width: 100%;
                         order: 3;
                         margin-top: 5px;
+                        font-size: 13px;
 
                         span {
                             // margin: 0;
@@ -500,6 +634,7 @@
             padding-bottom: 30px;
 
             .container {
+                padding: 0;
                 .content_box_wrap {
                     .left_wrap {
                         .top_details {
@@ -530,6 +665,7 @@
         }
         .data_table_wrap {
             .container {
+                padding: 0;
                 flex-wrap: wrap;
 
                 .content_intel_color {

@@ -6,6 +6,7 @@ import Market from './page/Market';
 import Footer from './component/Footer';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Provider } from './store/Context';
 
 function App() {
     useEffect(() => {
@@ -13,17 +14,19 @@ function App() {
     }, []);
 
     return (
-        <Router>
-            <Switch>
-                <Route path='/' exact>
-                    <Home />
-                </Route>
-                <Route path='/market' exact>
-                    <Market />
-                </Route>
-            </Switch>
-            <Footer />
-        </Router>
+        <Provider>
+            <Router>
+                <Switch>
+                    <Route path='/' exact>
+                        <Home />
+                    </Route>
+                    <Route path='/market' exact>
+                        <Market />
+                    </Route>
+                </Switch>
+                <Footer />
+            </Router>
+        </Provider>
     );
 }
 

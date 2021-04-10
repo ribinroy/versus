@@ -2,7 +2,7 @@ import { ReactComponent as Chevron } from './../../assets/svg/Chevron.svg';
 import { useState } from 'react';
 import { ReviewPredictionPop } from './PopUps';
 
-const Prediction = ({ data }) => {
+const Prediction = ({ data, tabSelected }) => {
     const [selectedTab, setTab] = useState('Short');
     const [showReviewPredictionPop, setReviewPredictionPop] = useState(false);
 
@@ -11,6 +11,8 @@ const Prediction = ({ data }) => {
             <ReviewPredictionPop
                 open={showReviewPredictionPop}
                 onClose={() => setReviewPredictionPop(false)}
+                data={data}
+                tabSelected={tabSelected}
             />
             <div className='header'>
                 {data.title} Prediction <Chevron />

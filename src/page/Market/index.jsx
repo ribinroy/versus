@@ -8,9 +8,8 @@ import Prediction from './Prediction';
 import Timer from './Timer';
 import { CloseRoundPop } from './PopUps';
 
+import dataSet from './demoDataSet';
 import diamond from './../../assets/images/diamond.png';
-import etheruem from './../../assets/images/etheruem.png';
-import chainlink from './../../assets/images/chainlink.png';
 
 const chartOptions = {
     fill: {
@@ -37,75 +36,6 @@ const chartOptions = {
     labels: ['Short', 'Long'],
 };
 
-const dataSet = {
-    eth: {
-        name: 'ETH/USD',
-        title: 'Ethreruem',
-        image: etheruem,
-        price: '1334.82',
-        btcValue: '0.03830 BTC',
-        totalprice: '1335',
-        tradeData: {
-            pm: { profit: '7.32', margin: '+' },
-            '24hrPC': { price: '$129.06', profit: '7.31', margin: '+' },
-            marketCap: {
-                price: '$195,167,193,427.34',
-                profit: '7.31',
-                margin: '+',
-            },
-            '24hLow24hHigh': { price: '$1571.58 / $1,770.59' },
-            tradingVol: {
-                price: '$45,483,057,917.02',
-                profit: '16.97',
-                margin: '+',
-            },
-            allTimeLow: { price: '$1,770.06', profit: '3.81', margin: '-' },
-            allTimeHigh: { price: '$0.4209', profit: '404552.79', margin: '+' },
-            ROI: { profit: '60024.21', margin: '+' },
-            rank: '2',
-        },
-        chart: [
-            {
-                name: 'ETH',
-                data: ['10 ETH', '40 ETH'],
-            },
-        ],
-    },
-    link: {
-        name: 'Chainlink',
-        title: 'Chainlink',
-        image: chainlink,
-        price: '22.61',
-        btcValue: '0.00048 BTC',
-        totalprice: '24.89',
-        tradeData: {
-            pm: { profit: '7.32', margin: '+' },
-            '24hrPC': { price: '$2.33', profit: '7.68', margin: '+' },
-            marketCap: {
-                price: '$12,383,604,898.99',
-                profit: '9.19',
-                margin: '+',
-            },
-            '24hLow24hHigh': { price: '$26.83 / $30.64' },
-            tradingVol: {
-                price: '$3,098,066,260.96',
-                profit: '25.78',
-                margin: '+',
-            },
-            allTimeLow: { price: '$30.64', profit: '0.57', margin: '-' },
-            allTimeHigh: { price: '$0.1263', profit: '24020.27', margin: '+' },
-            ROI: { profit: '19366.09', margin: '+' },
-            rank: '9',
-        },
-        chart: [
-            {
-                name: 'ETH',
-                data: ['32 ETH', '20 ETH'],
-            },
-        ],
-    },
-};
-
 const Market = () => {
     const [tabSelected, setTab] = useState('ethereum');
     const [cryptoSelected, setCrypto] = useState('eth');
@@ -118,7 +48,7 @@ const Market = () => {
     useEffect(() => {
         if (chartDataState[0].name === '')
             setChartData(dataSet[cryptoSelected].chart);
-    }, [chartDataState]);
+    }, [chartDataState, cryptoSelected]);
 
     const setTabHandler = (value) => {
         setTab(value);
@@ -139,6 +69,8 @@ const Market = () => {
             <CloseRoundPop
                 open={showCloseRoundPop}
                 onClose={() => setCloseRoundPop(false)}
+                data={dataSet[cryptoSelected]}
+                tabSelected={tabSelected}
             />
             <header>
                 <div className='container'>
@@ -182,8 +114,18 @@ const Market = () => {
             <section className='charts_wrap'>
                 <div className='container'>
                     <div className='top_contents_wrap'>
-                        <div className='wallet'>Wallet:....501c2307</div>
-                        <div className='tab_wrap'>
+                        <div
+                            className='wallet'
+                            data-aos='fade-left'
+                            data-aos-duration='500'
+                            data-aos-offset='0'>
+                            Wallet:....501c2307
+                        </div>
+                        <div
+                            className='tab_wrap'
+                            data-aos='fade-up'
+                            data-aos-duration='500'
+                            data-aos-offset='0'>
                             <button
                                 className={
                                     'tab' +
@@ -203,12 +145,20 @@ const Market = () => {
                                 Binance Smart Chain
                             </button>
                         </div>
-                        <p className='content_intel_color'>
+                        <p
+                            className='content_intel_color'
+                            data-aos='fade-right'
+                            data-aos-duration='500'
+                            data-aos-offset='0'>
                             Amount pooled in this 2-hour cycle
                         </p>
                     </div>
                     <div className='content_box_wrap'>
-                        <div className='left_wrap'>
+                        <div
+                            className='left_wrap'
+                            data-aos='fade-up'
+                            data-aos-duration='700'
+                            data-aos-offset='0'>
                             <div className='content_box'>
                                 <div className='top_details'>
                                     <div className='left_wrap_1'>
@@ -262,8 +212,15 @@ const Market = () => {
                                 </button>
                             </div>
                         </div>
-                        <div className='right_wrap'>
-                            <Prediction data={dataSet[cryptoSelected]} />
+                        <div
+                            className='right_wrap'
+                            data-aos='fade-up'
+                            data-aos-duration='800'
+                            data-aos-offset='0'>
+                            <Prediction
+                                data={dataSet[cryptoSelected]}
+                                tabSelected={tabSelected}
+                            />
                             <div
                                 className='close_round_link'
                                 onClick={() => setCloseRoundPop(true)}>
@@ -275,15 +232,27 @@ const Market = () => {
             </section>
             <section className='data_table_wrap'>
                 <div className='container'>
-                    <p className='content_intel_color'>
+                    <p
+                        className='content_intel_color'
+                        data-aos='fade-right'
+                        data-aos-duration='500'
+                        data-aos-offset='0'>
                         Price feeds provided by Chainlink
                     </p>
                 </div>
                 <div className='container flexed_cont'>
-                    <div className='left_wrap'>
+                    <div
+                        className='left_wrap'
+                        data-aos='fade-up'
+                        data-aos-duration='700'
+                        data-aos-offset='0'>
                         <TradeValues data={dataSet[cryptoSelected]} />
                     </div>
-                    <div className='right_wrap'>
+                    <div
+                        className='right_wrap'
+                        data-aos='fade-up'
+                        data-aos-duration='800'
+                        data-aos-offset='0'>
                         <LeaderBoard />
                     </div>
                 </div>
