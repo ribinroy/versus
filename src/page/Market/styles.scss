@@ -530,6 +530,21 @@
                 letter-spacing: -0.097561px;
                 font-size: 100px;
                 color: rgba(161, 161, 161, 0.6);
+                width: 100%;
+                background-color: transparent;
+                border: 0px;
+                text-align: center;
+                outline: none;
+                -moz-appearance: textfield; /* Firefox */
+                font-weight: bold;
+                font-family: 'Sora';
+
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                    /* display: none; <- Crashes Chrome on hover */
+                    -webkit-appearance: none;
+                    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+                }
 
                 span {
                     font-size: 30px;
@@ -699,5 +714,50 @@
 
     .prediction_wrap {
         min-height: 400px;
+
+        .body {
+            padding: 0 15px;
+        }
+
+        .footer {
+            flex-direction: column;
+            justify-content: space-around;
+        }
+    }
+
+    .flex_pop-content {
+        width: calc(100% - 30px);
+        max-width: calc(100% - 30px);
+
+        .pop_content_wrap {
+            .status {
+                padding: 15px 0;
+            }
+            .body {
+                padding: 0 15px;
+                justify-content: space-around;
+
+                p {
+                    text-align: center;
+                }
+
+                .value {
+                    font-size: 70px;
+                }
+            }
+            .footer {
+                height: 165px;
+                button {
+                    font-size: 20px;
+                }
+
+                .contents {
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                }
+            }
+        }
     }
 }

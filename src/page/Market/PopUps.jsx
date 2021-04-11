@@ -93,7 +93,13 @@ const ReviewPredictionPop = ({ open, onClose, data, tabSelected }) => {
                 </div>
                 <div className='body'>
                     <p>Review your ETH amount to stake</p>
-                    <div className='value'>0.00</div>
+                    <input
+                        type='number'
+                        name='value'
+                        id='value'
+                        className='value'
+                        defaultValue='0.00'
+                    />
                 </div>
                 <div className='footer'>
                     <button onClick={() => submitPrediction()}>

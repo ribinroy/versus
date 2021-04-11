@@ -13,9 +13,9 @@ import diamond from './../../assets/images/diamond.png';
 
 const chartOptions = {
     fill: {
-        colors: ['#0CC63B', '#F03B3B'],
+        colors: ['#F03B3B', '#0CC63B'],
     },
-    colors: ['#0CC63B', '#F03B3B'],
+    colors: ['#F03B3B', '#0CC63B'],
     legend: {
         show: false,
     },
